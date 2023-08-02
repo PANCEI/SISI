@@ -1,11 +1,16 @@
 <?php
-$star = 5;
-for ($a = $star; $a > 0; $a--) {
-    for ($i = 1; $i <= $a; $i++) {
-        echo "&nbsp";
+function bintang($number)
+{
+    for ($i = $number; $i > 0; $i--) {
+
+        for ($space = 1; $space <= $i; $space++) {
+            echo "&nbsp";
+        }
+        for ($bintang = $number; $bintang >= $i; $bintang--) {
+            echo "*";
+        }
+        echo "<br>";
     }
-    for ($a1 = $star; $a1 >= $a; $a1--) {
-        echo "*";
-    }
-    echo "<br>";
 }
+bintang(5);
+bintang(2);
