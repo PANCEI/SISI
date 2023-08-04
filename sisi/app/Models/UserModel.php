@@ -24,4 +24,8 @@ class UserModel extends Model
             ->join($this->table2, $this->on)
             ->first();
     }
+    public function getUserId($id)
+    {
+        return $this->where(['user.ID_USER' => $id])->join($this->table2, $this->on)->first();
+    }
 }
