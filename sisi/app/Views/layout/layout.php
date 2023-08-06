@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+    <title><?= $title; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -38,7 +38,8 @@
 </head>
 
 <body>
-
+    <div class="flash-success" data-flashdata="<?= session()->getFlashdata('success'); ?>"></div>
+    <div class="flash-error" data-flashdata="<?= session()->getFlashdata('error'); ?>"></div>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -132,7 +133,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="index.html">
+                <a class="nav-link collapsed" href="/dashboard">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -143,8 +144,8 @@
                 <?php $menu = Menu($m['MENU_ID']) ?>
                 <?php foreach ($menu as $mn) : ?>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="<?= $mn['MENU_LINK'] ?>">
-                            <?= $mn['MENU_ICON']; ?>
+                        <a class="nav-link collapsed" href="<?= $mn['MENU_LINK'] ?>?id=<?= $mn['MENU_ID'] ?>">
+                            <i class=" <?= $mn['MENU_ICON']; ?>"></i>
                             <span><?= $mn['MENU_NAME']; ?></span>
                         </a>
                     </li><!-- End Dashboard Nav -->
@@ -228,17 +229,10 @@
 
     </aside><!-- End Sidebar-->
 
-    <main id="main" class="main">
+    <main id="main" class="main mb-5">
 
         <div class="pagetitle">
-            <h1>Blank Page</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
-                </ol>
-            </nav>
+            <h1><?= $title; ?></h1>
         </div><!-- End Page Title -->
 
         <section class="section">
@@ -250,7 +244,7 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer mt-5">
         <div class="copyright">
             &copy; Copyright <strong><span>aswar hamid</span></strong>
         </div>
@@ -260,7 +254,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-
+    <script src="<?= base_url() ?>/jquery-3.6.0.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/chart.js/chart.umd.js"></script>
@@ -269,9 +263,29 @@
     <script src="<?= base_url() ?>/assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/php-email-form/validate.js"></script>
-
+    <script src="<?= base_url() ?>/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>/assets/js/main.js"></script>
+    <script src="<?= base_url() ?>/event.js"></script>
+    <script>
+        let flashSuccess = $('.flash-success').data('flashdata');
+        if (flashSuccess) {
+            Swal.fire(
+                'Success',
+                flashSuccess,
+                'success'
+            )
+        }
+
+        let flashError = $('.flash-error').data('flashdata');
+        if (flashError) {
+            Swal.fire(
+                'Error',
+                flashError,
+                'error'
+            )
+        }
+    </script>
     <?= $this->renderSection('js'); ?>
 </body>
 
