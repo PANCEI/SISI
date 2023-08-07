@@ -58,4 +58,12 @@ class Login extends BaseController
             return redirect()->to('/login')->withInput();
         }
     }
+    public function out()
+    {
+        $data = ['id_user'];
+        session()->remove($data);
+        session()->set('');
+        session()->setFlashdata('success', 'Logout Berhasil');
+        return redirect()->to('/login');
+    }
 }

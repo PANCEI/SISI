@@ -52,7 +52,8 @@ class Level extends BaseController
                 "STATUS" => 'error',
                 "PARAM" => "ID_LEVEL,LEVEL",
                 "CREATE_DATE" => date("d-m-Y"),
-                "UPDATE_BY" => $this->request->getVar('createdby')
+                "UPDATE_BY" => $this->request->getVar('createdby'),
+                "DELETE_MARK" => '1'
             ];
             $this->error->insert($data);
             session()->setFlashdata('error', "Gagal Menambahkan Level Baru");

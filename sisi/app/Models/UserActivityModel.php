@@ -8,12 +8,12 @@ class UserActivityModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'user_activity';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'NO_ACTIVITY';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['ID_USER', 'Diskripsi', 'STATUS', 'MENU_ID', 'CREATE_BY'];
+    protected $allowedFields    = ['ID_USER', 'Diskripsi', 'STATUS', 'MENU_ID', 'CREATE_BY', 'DELETE_MARK'];
 
     // Dates
     protected $useTimestamps = true;

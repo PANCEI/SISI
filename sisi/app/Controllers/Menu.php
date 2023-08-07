@@ -54,7 +54,8 @@ class Menu extends BaseController
                 "STATUS" => 'error',
                 "PARAM" => "MENU_NAME,MENU_ICON,MENU_LINK,MENU_LEVEL",
                 "CREATE_DATE" => date("d-m-Y"),
-                "UPDATE_BY" => $this->request->getVar('createdby')
+                "UPDATE_BY" => $this->request->getVar('createdby'),
+                "DELETE_MARK" => '1'
             ];
             $this->error->insert($data);
             session()->setFlashdata('error', "Gagal Memasukan Menu Baru");
@@ -104,7 +105,8 @@ class Menu extends BaseController
                 "STATUS" => 'error',
                 "PARAM" => "MENU_NAME,MENU_ICON,MENU_LINK,MENU_LEVEL",
                 "CREATE_DATE" => date("d-m-Y"),
-                "UPDATE_BY" => $this->request->getVar('createdby')
+                "UPDATE_BY" => $this->request->getVar('createdby'),
+                "DELETE_MARK" => '1'
             ];
             $this->error->insert($data);
             session()->setFlashdata('error', "Gagal Mengubah Menu");
@@ -147,7 +149,8 @@ class Menu extends BaseController
             "Diskripsi" => "Delete Mark Berhasil Di Ubah",
             "STATUS" => "Success",
             "MENU_ID" => $idm,
-            "CREATE_BY" => $this->request->getVar('createdby')
+            "CREATE_BY" => $this->request->getVar('createdby'),
+            "DELETE_MARK" => '1'
         ];
         $this->activity->insert($ac);
         session()->setFlashdata('success', 'Anda Berhasil Mengubah Mark Menu');

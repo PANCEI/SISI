@@ -25,7 +25,7 @@
     <link href="<?= base_url() ?>/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?= base_url() ?>/datatables-bs5/dataTables.bootstrap5.min.css">
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>/assets/css/style.css" rel="stylesheet">
 
@@ -74,46 +74,9 @@
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-gear"></i>
-                                <span>Account Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                                <i class="bi bi-question-circle"></i>
-                                <span>Need Help?</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="/login/out">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -144,86 +107,13 @@
                 <?php $menu = Menu($m['MENU_ID']) ?>
                 <?php foreach ($menu as $mn) : ?>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="<?= $mn['MENU_LINK'] ?>?id=<?= $mn['MENU_ID'] ?>">
+                        <a class="nav-link collapsed" href="/<?= $mn['MENU_LINK'] ?>?id=<?= $mn['MENU_ID'] ?>">
                             <i class=" <?= $mn['MENU_ICON']; ?>"></i>
                             <span><?= $mn['MENU_NAME']; ?></span>
                         </a>
                     </li><!-- End Dashboard Nav -->
                 <?php endforeach; ?>
             <?php endforeach; ?>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="icons-bootstrap.html">
-                            <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="icons-remix.html">
-                            <i class="bi bi-circle"></i><span>Remix Icons</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="icons-boxicons.html">
-                            <i class="bi bi-circle"></i><span>Boxicons</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Icons Nav -->
-
-            <li class="nav-heading">Pages</li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
-                    <i class="bi bi-person"></i>
-                    <span>Profile</span>
-                </a>
-            </li><!-- End Profile Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
-                    <i class="bi bi-question-circle"></i>
-                    <span>F.A.Q</span>
-                </a>
-            </li><!-- End F.A.Q Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
-                    <i class="bi bi-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </li><!-- End Contact Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
-                    <i class="bi bi-card-list"></i>
-                    <span>Register</span>
-                </a>
-            </li><!-- End Register Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Login</span>
-                </a>
-            </li><!-- End Login Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.html">
-                    <i class="bi bi-dash-circle"></i>
-                    <span>Error 404</span>
-                </a>
-            </li><!-- End Error 404 Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="pages-blank.html">
-                    <i class="bi bi-file-earmark"></i>
-                    <span>Blank</span>
-                </a>
-            </li><!-- End Blank Page Nav -->
 
         </ul>
 
@@ -264,6 +154,8 @@
     <script src="<?= base_url() ?>/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/php-email-form/validate.js"></script>
     <script src="<?= base_url() ?>/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url() ?>//datatables-bs5/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>/datatables-bs5/dataTables.bootstrap5.min.js"></script>
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>/assets/js/main.js"></script>
     <script src="<?= base_url() ?>/event.js"></script>
