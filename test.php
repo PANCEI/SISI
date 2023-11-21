@@ -12,5 +12,6 @@ function bintang($number)
         echo "<br>";
     }
 }
+echo "oke";
 bintang(5);
 bintang(2);
