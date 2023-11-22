@@ -13,6 +13,6 @@ function bintang($number)
     }
 }
 echo "oke";
-echo "ik";
+
 bintang(5);
 bintang(2);
